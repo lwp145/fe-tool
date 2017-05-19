@@ -16,16 +16,16 @@ npm run build
 ```
 
 > 技术栈
-. vue2
-. vue-router
-. less
-. es6
+* vue2
+* vue-router
+* less
+* es6
 
 > 打包
-. webpack
+* webpack
 
 > 插件
-. jquery
-. qrcode
-. colpick
+* jquery
+* qrcode
+* colpick
 
