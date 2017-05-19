@@ -1,18 +1,31 @@
-# toolapp
+# Web前端工具箱
 
-> 陈泽江的工具app
+> 建立一个自己的工具库
 
 ## Build Setup
 
 ``` bash
-# install dependencies
+# 安装依赖
 npm install
 
-# serve with hot reload at localhost:8080
+# 本地调试预览 localhost:8080
 npm run dev
 
-# build for production with minification
+# 打包发布
 npm run build
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+> 技术栈
+. vue2
+. vue-router
+. less
+. es6
+
+> 打包
+. webpack
+
+> 插件
+. jquery
+. qrcode
+. colpick
+
