@@ -2,7 +2,10 @@
 
 > 建立一个自己的工具库
 
-## Build Setup
+### 演示地址
+#### [fe-tool](http://tool.chenzejiang.com)
+
+## 如何使用?
 
 ``` bash
 # 安装依赖
@@ -29,3 +32,4 @@ npm run build
 * qrcode
 * colpick
 
+![image](http://img.chenzejiang.com/github/fe-tool/tool.png)
