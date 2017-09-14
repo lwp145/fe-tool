@@ -5,7 +5,7 @@
 	<h1>JS压缩格式化</h1>
  
 	<!-- 主内容 start -->
-   <iframe style="width: 100%; height: 550px;" scrolling="no" frameborder="no" id="info" src="http://www.chenzejiang.com/tool/static/iframe/jsformat/index.html">
+   <iframe style="width: 100%; height: 550px;" scrolling="no" frameborder="no" id="info" src="//tool.chenzejiang.com/static/iframe/jsformat/index.html">
    </iframe>
 	<!-- 主内容 end -->
   </div>

@@ -5,7 +5,7 @@
 	<h1>CSS生成三角形</h1>
  
 	<!-- 主内容 start -->
-   <iframe style="width: 100%; height: 650px;" scrolling="no" frameborder="no" id="info" src="http://www.chenzejiang.com/tool/static/iframe/csstriangle/index.html">
+   <iframe style="width: 100%; height: 650px;" scrolling="no" frameborder="no" id="info" src="//tool.chenzejiang.com/static/iframe/csstriangle/index.html">
    </iframe>
 	<!-- 主内容 end -->
   </div>

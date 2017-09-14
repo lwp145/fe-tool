@@ -151,6 +151,22 @@
              "data_original_title": "工具说明"
          }
      ],
+     "性能测试": [
+         {
+             "link": "https://developers.google.com/speed/pagespeed/insights/",
+             "link_txt": "测试页面性能",
+             "data_content": "google测试",
+             "data_original_title": "工具说明"
+         }
+     ],
+     "规范": [
+         {
+             "link": "https://webj.gitbooks.io/web/content/",
+             "link_txt": "Web前端规范",
+             "data_content": "用gitbook编写的一套规范，性能优化，与一些开发技巧",
+             "data_original_title": "规范说明"
+         }
+     ],
      "API文档": [
          {
              "link": "https://ant.design/docs/react/getting-started-cn",
