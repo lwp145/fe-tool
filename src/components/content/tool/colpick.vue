@@ -17,7 +17,6 @@
 	font-size: 20px;
 	padding:20px;
 	color: #000;
-  
  }
 
 </style>
