@@ -17,7 +17,7 @@ export default {
   name: 'app',
   data(){
     return {
-      
+
     }
   },
   components: {
@@ -27,7 +27,7 @@ export default {
   },
   methods:{
     onClickMe:function(){
-      console.log(1);
+      console.log(2);
     }
   },
   // 组件渲染完成执行

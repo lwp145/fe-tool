@@ -3,6 +3,7 @@
   <div class="content clearfix">
 	<div class="menu" id="demo">
 		<ul>
+      <li><router-link to="/tool/md_api"><span class="icon-tools"></span>接口转md</router-link></li>
 			<li><router-link to="/tool/js_str"><span class="icon-tools"></span>html转为js字符串</router-link></li>
 			<li><router-link to="/tool/css3"><span class="icon-layers"></span>css3 兼容</router-link></li>
 			<li><router-link to="/tool/html_reset"><span class="icon-code"></span>html 格式化</router-link></li>

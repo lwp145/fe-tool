@@ -1,10 +1,13 @@
 import Vue from 'vue'
 import store from './store'
 import VueRouter from 'vue-router'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 
 // 引入bootstrap
 import './assets/css/bootstrap.css'
 import './assets/js/bootstrap.js'
+Vue.use(VueAxios,axios);
 
 // import vuex from './vuex.vue'
 /* 工具组件 */
@@ -17,7 +20,7 @@ import js_str from './components/content/tool/js_str'
 import css3 from './components/content/tool/css3'
 // html 格式化
 import html_reset from './components/content/tool/html_reset'
-// css 换算 
+// css 换算
 import css_matrixing from './components/content/tool/css_matrixing'
 // 二维码生成
 import qr_code from './components/content/tool/qr_code'
@@ -37,6 +40,8 @@ import json_format from './components/content/tool/json_format'
 import js_format from './components/content/tool/js_format'
 // css生成三角形
 import css_triangle from './components/content/tool/css_triangle'
+// 生成md的api
+import md_api from './components/content/tool/md_api'
 
 // 公共按钮 蓝色
 import comm_btn from './components/content/comm/comm_btn.vue'
@@ -62,12 +67,13 @@ const routes = [
       {path:'/tool/css_format',component:css_format},
       {path:'/tool/json_format',component:json_format},
       {path:'/tool/js_format',component:js_format},
+      {path:'/tool/md_api',component:md_api},
       {path:'/tool/css_triangle',component:css_triangle}
 ];
 
 // 创建 实例 router
 const router = new VueRouter({
-    // mode:'history', 
+    // mode:'history',
     // https://router.vuejs.org/zh-cn/essentials/history-mode.html
     // 配置 history 需要去 配置后端环境 ，让用户去访问一个地址，映射到我这个地址
 

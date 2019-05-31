@@ -1,0 +1,182 @@
+<template>
+  <div class="tool_box">
+	<h1>生成MackDown - API</h1>
+
+    <p class="red">
+        PS: 如果接口开启跨域，请使用以下方法解决 <br/>
+        1、Chrome插件 Allow-Control-Allow-Origin <br/>
+        2、Chrome 命令行启动参数 --disable-web-security
+    </p>
+    <h5>模板(可编辑)</h5>
+    <pre contenteditable="true">
+[
+    {
+        "title":"获取文章",
+        "url":"http://test.carisok.com/pc.php/index/get_articles/?api_version=1.55&__trace_id=c8d6f77c-39a7-490c-87f2-fc0aa77e7420-store&token=45be8ba612e77dc33ae6099cdb41dacd"
+    }
+]</pre>
+    <textarea id="txt1">
+    </textarea>
+    <div class="btn_box">
+      <v-btn btnText="转换" @click.native="transformFun"></v-btn>
+    </div>
+    <h5>生成结果</h5>
+    <textarea id="txt2"></textarea>
+  </div>
+</template>
+
+<style lang="less" scoped>
+ .tool_box{
+	font-size: 20px;
+	padding:20px;
+	color: #000;
+	.btn_box{
+		margin:10px 0;
+	}
+    .red{
+        font-size:14px;
+        color:#f22;
+    }
+    h5{
+        font-size: 16px;
+        color: #777;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+}
+</style>
+
+<script>
+  import comm_btn from '../comm/comm_btn.vue'
+
+  export default {
+  name: 'md_api',
+  data () {
+    return {
+
+    }
+  },
+  components: {
+    'v-btn':comm_btn
+  },
+  methods:{
+
+    getUrlParam(url){
+        var arr1 = url.split('?')[1].split('&')
+        function getJson(arr){
+            var theRequest = new Object();
+            for (var i = 0; i < arr.length; i++) {
+                var kye = arr[i].split("=")[0]
+                var value = arr[i].split("=")[1]
+                // 给对象赋值
+                theRequest[kye] = value
+            }
+            return theRequest;
+        }
+        return JSON.stringify(getJson(arr1), null, '\t');
+    },
+
+    getHttpData(loadArr){
+        let reqList = []
+        let resList = []
+
+        loadArr.forEach((item,index) => {
+            let req = this.axios.get(item.url);
+            reqList.push(req);
+        });
+
+        return this.axios.all(reqList).then(this.axios.spread(function(...resList) {
+            return resList;
+        }))
+    },
+
+	getParamStr (reqArr){
+		const paramArr = JSON.parse(reqArr);
+		let returnStr = '';
+		for(let x in paramArr){
+			let isEmpty = paramArr[x] == '' ? '否' : '是'
+			let keyType = isNaN(Number(paramArr[x])) === true ? 'String' : 'Number';
+			returnStr += `|${x}|${isEmpty}|${keyType}|　|\n`;
+		}
+		console.log(returnStr);
+		return returnStr;
+	},
+
+    async transformFun(){
+  		const txt1 = document.getElementById("txt1");
+  		const txt2 = document.getElementById("txt2");
+        txt2.value = '';
+		try{
+			const loadArr = JSON.parse(txt1.value);
+			const resultStr = await this.getMD(loadArr);
+			txt2.value = resultStr;
+		}catch(e){
+			alert('请输入正确的json');
+		}
+  	},
+    /**
+     * 生成MackDown文件
+     */
+  	async getMD(loadArr){
+		let httpDataArr = await this.getHttpData(loadArr);
+
+        var parseArr = loadArr;
+        var returnStr = '';
+        parseArr.forEach((item,index) => {
+            // item = item.url
+            var reqStr = this.getUrlParam(item.url);
+            var resStr = JSON.stringify(httpDataArr[index]["data"], null, '\t');
+			var paramStr = this.getParamStr(reqStr);
+            var reqUrl = item.url.replace(/http(s)?:\/\/([^\/]+)\//i,'').split("?")[0];
+        var str =
+`
+### ${index+1}. ${item.title}
+
+**URL：**
+- \`${reqUrl}\`
+
+**METHODS：**
+- GET 
+
+**PARAM：** 
+
+|参数名|必选|类型|说明|
+|:----|:---|:-----|:-----|
+${paramStr}
+
+**REQUEST:**
+
+\`\`\`
+${reqStr}
+\`\`\`
+
+**RESPONSE - SUCCESS:**
+
+\`\`\`
+${resStr}
+\`\`\`
+
+**RESPONSE - ERROR:**
+
+\`\`\`
+{
+	errorcode: 99,
+	errmsg:''
+}
+\`\`\`
+
+`
+        returnStr += str;
+    });
+
+
+      return returnStr;
+    }
+  },
+  // 组件渲染完成执行
+  mounted:function(){
+
+  }
+}
+</script>
+
