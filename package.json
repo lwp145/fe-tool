@@ -12,7 +12,8 @@
     "jquery": "2.1.1",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
-    "vue": "^2.1.0"
+    "vue": "^2.1.0",
+    "vue-clipboard2": "^0.3.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",

@@ -42,12 +42,17 @@ import js_format from './components/content/tool/js_format'
 import css_triangle from './components/content/tool/css_triangle'
 // 生成md的api
 import md_api from './components/content/tool/md_api'
+// 字符串格式化为多种类型
+import string_format from './components/content/tool/string_format'
 
 // 公共按钮 蓝色
 import comm_btn from './components/content/comm/comm_btn.vue'
 
 // 安装 Vue.js 插件
 Vue.use(VueRouter);
+import VueClipboard from 'vue-clipboard2'
+Vue.use(VueClipboard);
+
 import App from './App'
 
 let app = Vue.extend(App);
@@ -68,6 +73,7 @@ const routes = [
       {path:'/tool/json_format',component:json_format},
       {path:'/tool/js_format',component:js_format},
       {path:'/tool/md_api',component:md_api},
+      {path:'/tool/string_format',component:string_format},
       {path:'/tool/css_triangle',component:css_triangle}
 ];
 
