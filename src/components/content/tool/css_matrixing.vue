@@ -2,7 +2,6 @@
   <div class="tool_box">
     <h1>css 代码换算</h1>
 
-    <!-- 主内容 start -->
     <div class="textarea">
       <textarea title="请输入文字" id="textarea_01"></textarea>
     </div>

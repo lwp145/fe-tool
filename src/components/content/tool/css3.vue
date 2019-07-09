@@ -10,17 +10,6 @@
   </div>
 </template>
 
-<style lang="less" scoped>
-.tool_box {
-  font-size: 20px;
-  padding: 20px;
-  color: #000;
-  .btn_box {
-    margin: 10px 0;
-  }
-}
-</style>
-
 <script>
 import comm_btn from "../comm/comm_btn.vue";
 export default {
@@ -61,3 +50,13 @@ export default {
 };
 </script>
 
+<style lang="less" scoped>
+.tool_box {
+  font-size: 20px;
+  padding: 20px;
+  color: #000;
+  .btn_box {
+    margin: 10px 0;
+  }
+}
+</style>

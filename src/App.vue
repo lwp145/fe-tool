@@ -1,59 +1,63 @@
 <template>
   <div id="app">
-      <!-- <h1>{{ $store.state.count }}</h1> -->
-      <v-header></v-header>
-      <v-content></v-content>
-      <v-footer></v-footer>
+    <v-header />
+    <v-content />
+    <v-footer />
   </div>
 </template>
 <script>
-// import $ from 'jquery'
-import header from './components/header/header.vue'
-import content from './components/content/content.vue'
-import footer from './components/footer/footer.vue'
+import vHeader from "./components/header/index";
+import vContent from "./components/content/content.vue";
+import vFooter from "./components/footer/index";
 
-import {mapState,mapMutations,mapGetters,mapActions} from 'vuex';
+import { mapState, mapMutations, mapGetters, mapActions } from "vuex";
 export default {
-  name: 'app',
-  data(){
-    return {
-
-    }
+  name: "app",
+  data() {
+    return {};
   },
   components: {
-    'v-header':header,
-    'v-content':content,
-    'v-footer':footer
+    "v-header": vHeader,
+    "v-content": vContent,
+    "v-footer": vFooter
   },
-  methods:{
-    onClickMe:function(){
+  methods: {
+    onClickMe: function() {
       console.log(2);
     }
   },
   // 组件渲染完成执行
-  mounted:function(){
+  mounted: function() {
     // 给content计算高度
-    var contHeight = $(window).height() - $("#footer").outerHeight() - $("#header").outerHeight();
-    $(".content").css("height",contHeight -1);
+    var contHeight =
+      $(window).height() -
+      $(".footer").outerHeight() -
+      $(".header").outerHeight();
+    $(".content").css("height", contHeight - 1);
 
-    $(window).resize(function(){
-       // 给content计算高度
-       var contHeight = $(window).height() - $("#footer").outerHeight() - $("#header").outerHeight();
-       $(".content").css("height",contHeight - 1);
+    $(window).resize(function() {
+      // 给content计算高度
+      var contHeight =
+        $(window).height() -
+        $(".footer").outerHeight() -
+        $(".header").outerHeight();
+      $(".content").css("height", contHeight - 1);
     });
   }
-}
+};
 </script>
 
 <style>
 #app {
-  font-family:'Microsoft YaHei','Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Microsoft YaHei", "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #f0f0f0;
-  width:100%;
+  width: 100%;
   border-top: 1px solid #444444;
   /*font-size: 0;*/
 }
-#app h1{font-size: 20px;}
+#app h1 {
+  font-size: 20px;
+}
 </style>

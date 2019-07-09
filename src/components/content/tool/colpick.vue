@@ -8,17 +8,8 @@
       id="info"
       src="//tool.chenzejiang.com/static/iframe/colpick/index.html"
     ></iframe>
-    <!-- 主内容 end -->
   </div>
 </template>
-
-<style lang="less" scoped>
-.tool_box {
-  font-size: 20px;
-  padding: 20px;
-  color: #000;
-}
-</style>
 
 <script>
 export default {
@@ -33,3 +24,10 @@ export default {
 };
 </script>
 
+<style lang="less" scoped>
+.tool_box {
+  font-size: 20px;
+  padding: 20px;
+  color: #000;
+}
+</style>

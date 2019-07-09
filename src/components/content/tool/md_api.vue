@@ -173,7 +173,6 @@ ${resStr}
       return returnStr;
     }
   },
-  // 组件渲染完成执行
   mounted:function(){
 
   }

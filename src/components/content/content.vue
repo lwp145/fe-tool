@@ -1,7 +1,6 @@
-
 <template>
   <div class="content clearfix">
-	<div class="menu" id="demo">
+	<div class="menu">
 		<ul>
 			<li><router-link to="/tool/string_format"><span class="icon-swap"></span>字符多种格式转换</router-link></li>
       		<li><router-link to="/tool/md_api"><span class="icon-news"></span>接口转md</router-link></li>
@@ -25,13 +24,11 @@
 </template>
 <script>
 export default {
-  name: 'content',
   data () {
     return {
 
     }
   },
-  // 组件渲染完成执行
   mounted:function(){
 
   }
