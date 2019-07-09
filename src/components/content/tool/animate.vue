@@ -5,7 +5,6 @@
       style="width: 100%; height: 550px;"
       scrolling="no"
       frameborder="no"
-      id="info"
       src="https://daneden.github.io/animate.css/"
     ></iframe>
     <p>

@@ -49,18 +49,18 @@
 import comm_btn from '../comm/comm_btn.vue';
 
 export default {
-  name: 'md_api',
-  data() {
-    return {};
-  },
   components: {
     'v-btn': comm_btn
   },
+  data() {
+    return {};
+  },
+  mounted: function() {},
   methods: {
     getUrlParam(url) {
       var arr1 = url.split('?')[1].split('&');
       function getJson(arr) {
-        var theRequest = new Object();
+        var theRequest = {};
         for (var i = 0; i < arr.length; i++) {
           var kye = arr[i].split('=')[0];
           var value = arr[i].split('=')[1];
@@ -73,11 +73,10 @@ export default {
     },
 
     getHttpData(loadArr) {
-      let reqList = [];
-      let resList = [];
-
+      const reqList = [];
+      const resList = [];
       loadArr.forEach((item, index) => {
-        let req = this.axios.get(item.url);
+        const req = this.axios.get(item.url);
         reqList.push(req);
       });
 
@@ -91,12 +90,11 @@ export default {
     getParamStr(reqArr) {
       const paramArr = JSON.parse(reqArr);
       let returnStr = '';
-      for (let x in paramArr) {
+      for (const x in paramArr) {
         const isEmpty = paramArr[x] === '' ? '否' : '是';
         const keyType = isNaN(Number(paramArr[x])) === true ? 'String' : 'Number';
         returnStr += `|${x}|${isEmpty}|${keyType}|　|\n`;
       }
-      console.log(returnStr);
       return returnStr;
     },
 
@@ -118,7 +116,7 @@ export default {
     async getMD(loadArr) {
       const httpDataArr = await this.getHttpData(loadArr);
       const parseArr = loadArr;
-      const returnStr = '';
+      let returnStr = '';
       parseArr.forEach((item, index) => {
         const reqStr = this.getUrlParam(item.url);
         const resStr = JSON.stringify(httpDataArr[index]['data'], null, '\t');
@@ -165,11 +163,9 @@ ${resStr}
 `;
         returnStr += str;
       });
-
       return returnStr;
     }
-  },
-  mounted: function() {}
+  }
 };
 </script>
 

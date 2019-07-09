@@ -10,7 +10,6 @@ import vHeader from './components/header/index';
 import vContent from './components/content/content.vue';
 import vFooter from './components/footer/index';
 
-import { mapState, mapMutations, mapGetters, mapActions } from 'vuex';
 export default {
   components: {
     'v-header': vHeader,

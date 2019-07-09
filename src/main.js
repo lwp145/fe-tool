@@ -1,23 +1,23 @@
-import Vue from 'vue'
-import store from './store'
-import VueRouter from 'vue-router'
-import axios from 'axios'
-import VueAxios from 'vue-axios'
-import VueClipboard from 'vue-clipboard2'
-import routes from './Router'
-import App from './App'
+import Vue from 'vue';
+import store from './store';
+import VueRouter from 'vue-router';
+import axios from 'axios';
+import VueAxios from 'vue-axios';
+import VueClipboard from 'vue-clipboard2';
+import routes from './Router';
+import App from './App';
 
 /* 引入bootstrap */
-import './assets/css/bootstrap.css'
-import './assets/js/bootstrap.js'
+import './assets/css/bootstrap.css';
+import './assets/js/bootstrap.js';
 
 Vue.use(VueAxios, axios);
 Vue.use(VueRouter);
 Vue.use(VueClipboard);
 
-import './utils/formatTime.js'
+import './utils/formatTime.js';
 
-let app = Vue.extend(App);
+const app = Vue.extend(App);
 const router = new VueRouter({
   // mode:'history',
   // https://router.vuejs.org/zh-cn/essentials/history-mode.html
@@ -40,4 +40,4 @@ new Vue({
   store,
   router,
   render: h => h(app)
-}).$mount('#app')
+}).$mount('#app');

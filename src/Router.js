@@ -32,6 +32,7 @@ import md_api from './components/content/tool/md_api';
 import string_format from './components/content/tool/string_format';
 
 const routes = [
+  // { path: '/', component: () => import('./components/content/tool/index.vue') },
   { path: '/', component: index },
   { path: '/index', component: index },
   { path: '/tool/css3', component: css3 },

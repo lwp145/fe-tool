@@ -5,7 +5,6 @@
       style="width: 100%; height: 550px;"
       scrolling="no"
       frameborder="no"
-      id="info"
       src="//tool.chenzejiang.com/static/iframe/colpick/index.html"
     ></iframe>
   </div>
