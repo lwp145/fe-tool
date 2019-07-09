@@ -3,8 +3,8 @@
   <div class="content clearfix">
 	<div class="menu" id="demo">
 		<ul>
-			<li><router-link to="/tool/string_format"><span class="icon-tools"></span>字符串格式化</router-link></li>
-      		<li><router-link to="/tool/md_api"><span class="icon-tools"></span>接口转md</router-link></li>
+			<li><router-link to="/tool/string_format"><span class="icon-swap"></span>字符多种格式转换</router-link></li>
+      		<li><router-link to="/tool/md_api"><span class="icon-news"></span>接口转md</router-link></li>
 			<li><router-link to="/tool/js_str"><span class="icon-tools"></span>html转为js字符串</router-link></li>
 			<li><router-link to="/tool/css3"><span class="icon-layers"></span>css3 兼容</router-link></li>
 			<li><router-link to="/tool/html_reset"><span class="icon-code"></span>html 格式化</router-link></li>
@@ -55,7 +55,7 @@ export default {
 		height: 100%;
 		background: #f2f2ea;
 		border-right: 1px solid #d9d9d1;
-    overflow-y: scroll;
+    	overflow-y: auto;
 		li{
 			width:100%;
 			min-height: 50px;

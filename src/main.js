@@ -7,7 +7,26 @@ import VueAxios from 'vue-axios'
 // 引入bootstrap
 import './assets/css/bootstrap.css'
 import './assets/js/bootstrap.js'
-Vue.use(VueAxios,axios);
+Vue.use(VueAxios, axios);
+
+Date.prototype.format = function (format) {
+  var o = {
+    "M+": this.getMonth() + 1, //month
+    "d+": this.getDate(),    //day
+    "h+": this.getHours(),   //hour
+    "m+": this.getMinutes(), //minute
+    "s+": this.getSeconds(), //second
+    "q+": Math.floor((this.getMonth() + 3) / 3),  //quarter
+    "S": this.getMilliseconds() //millisecond
+  };
+  if (/(y+)/.test(format)) format = format.replace(RegExp.$1,
+    (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+  for (var k in o) {
+    if (new RegExp("(" + k + ")").test(format))
+      format = format.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length));
+  }
+  return format;
+}
 
 // import vuex from './vuex.vue'
 /* 工具组件 */
@@ -59,40 +78,40 @@ let app = Vue.extend(App);
 
 // 然后定义路由(routes)，components还可以是Vue.extend()创建的
 const routes = [
-      {path:'/',component:index},
-      {path:'/tool/css3',component:css3},
-      {path:'/tool/js_str',component:js_str},
-      {path:'/tool/html_reset',component:html_reset},
-      {path:'/tool/css_matrixing',component:css_matrixing},
-      {path:'/tool/qr_code',component:qr_code},
-      {path:'/tool/creat_img',component:creat_img},
-      {path:'/tool/animate',component:animate},
-      {path:'/tool/colpick',component:colpick},
-      {path:'/tool/tinypng',component:tinypng},
-      {path:'/tool/css_format',component:css_format},
-      {path:'/tool/json_format',component:json_format},
-      {path:'/tool/js_format',component:js_format},
-      {path:'/tool/md_api',component:md_api},
-      {path:'/tool/string_format',component:string_format},
-      {path:'/tool/css_triangle',component:css_triangle}
+  { path: '/', component: index },
+  { path: '/tool/css3', component: css3 },
+  { path: '/tool/js_str', component: js_str },
+  { path: '/tool/html_reset', component: html_reset },
+  { path: '/tool/css_matrixing', component: css_matrixing },
+  { path: '/tool/qr_code', component: qr_code },
+  { path: '/tool/creat_img', component: creat_img },
+  { path: '/tool/animate', component: animate },
+  { path: '/tool/colpick', component: colpick },
+  { path: '/tool/tinypng', component: tinypng },
+  { path: '/tool/css_format', component: css_format },
+  { path: '/tool/json_format', component: json_format },
+  { path: '/tool/js_format', component: js_format },
+  { path: '/tool/md_api', component: md_api },
+  { path: '/tool/string_format', component: string_format },
+  { path: '/tool/css_triangle', component: css_triangle }
 ];
 
 // 创建 实例 router
 const router = new VueRouter({
-    // mode:'history',
-    // https://router.vuejs.org/zh-cn/essentials/history-mode.html
-    // 配置 history 需要去 配置后端环境 ，让用户去访问一个地址，映射到我这个地址
+  // mode:'history',
+  // https://router.vuejs.org/zh-cn/essentials/history-mode.html
+  // 配置 history 需要去 配置后端环境 ，让用户去访问一个地址，映射到我这个地址
 
-    // server {
-    //         listen       80;
-    //         server_name  www.m-example.com;
-    //         root   "E:/UED/eagle/branch/eagle201510/m-example";
-    //         location / {
-    //             try_files $uri $uri/ /index.html =404;
-    //         }
-    // }
-    base:__dirname,
-    routes:routes
+  // server {
+  //         listen       80;
+  //         server_name  www.m-example.com;
+  //         root   "E:/UED/eagle/branch/eagle201510/m-example";
+  //         location / {
+  //             try_files $uri $uri/ /index.html =404;
+  //         }
+  // }
+  base: __dirname,
+  routes: routes
 });
 
 
@@ -101,5 +120,5 @@ new Vue({
   el: '#app',
   store,
   router,
-  render:h=>h(app)
+  render: h => h(app)
 }).$mount('#app')

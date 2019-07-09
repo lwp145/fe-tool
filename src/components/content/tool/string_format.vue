@@ -30,10 +30,7 @@
 </template>
 
 <script>
-import comm_btn from "../comm/comm_btn.vue";
-
 export default {
-  name: "string_format",
   data() {
     return {
       formarArr: [
@@ -57,14 +54,29 @@ export default {
           prop: this.unicode2str,
           val: ""
         },
+        {
+          title: "decodeURIComponent解码",
+          prop: this.decodeURIComponent,
+          val: ""
+        },
+        {
+          title: "decodeURI解码",
+          prop: this.decodeURI,
+          val: ""
+        },
+        {
+          title: "时间戳转换时间",
+          prop: this.timestamp,
+          val: ""
+        }
       ],
       textFormat: ""
     };
   },
   watch: {
-    textFormat:function(_str) {
+    textFormat: function(_str) {
       const that = this;
-      const res = this.formarArr.map((item) => {
+      const res = this.formarArr.map(item => {
         const obj = item;
         obj.val = item.prop(_str);
         return obj;
@@ -72,18 +84,16 @@ export default {
       this.formarArr = res;
     }
   },
-  computed: {
-  },
-  components: {
-    "v-btn": comm_btn
-  },
   methods: {
+    /* 复制成功 */
     onCopySuccess() {
       console.log("复制成功");
     },
+    /* 转换为英文大写 */
     upperCase(_str) {
       return _str.toUpperCase();
     },
+    /* 转换为英文小写 */
     lowerCase(_str) {
       return _str.toLowerCase();
     },
@@ -102,10 +112,29 @@ export default {
       _str = _str.replace(/%/g, "\\");
       _str = _str.replace(/\\/g, "");
       return _str;
+    },
+    /* decodeURIComponent解码 */
+    decodeURIComponent(_str) {
+      return decodeURIComponent(_str);
+    },
+    /* decodeURI解码 */
+    decodeURI(_str) {
+      return decodeURI(_str);
+    },
+    /* 时间戳转换可阅读时间 */
+    timestamp(_time) {
+      let stamp = Number(_time);
+      if (_time.length === 10) {
+        stamp = stamp * 1000;
+      }
+      let res = new Date(Number(stamp)).format("yyyy-MM-dd hh:mm:ss");
+      console.log(_time.length,typeof(stamp), stamp);
+      if (_time.length !== 10 || _time.length === 13 || isNaN(stamp) === true) {
+        res = '时间戳格式不正确'
+      }
+      return _time === '' ? '' : res;
     }
-  },
-  // 组件渲染完成执行
-  mounted: function() {}
+  }
 };
 </script>
 
