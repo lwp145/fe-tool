@@ -128,16 +128,14 @@ export default {
         stamp = stamp * 1000;
       }
       let res = new Date(Number(stamp)).format("yyyy-MM-dd hh:mm:ss");
-      console.log(_time.length,typeof(stamp), stamp);
-      if (_time.length !== 10 || _time.length === 13 || isNaN(stamp) === true) {
-        res = '时间戳格式不正确'
+      if (_time.length !== 10 && _time.length !== 13 && isNaN(stamp) === true) {
+        res = '时间戳格式不正确';
       }
       return _time === '' ? '' : res;
     }
   }
 };
 </script>
-
 
 <style lang="less" scoped>
 .tool_box {

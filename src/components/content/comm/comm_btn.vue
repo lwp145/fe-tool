@@ -20,7 +20,7 @@ export default {
 
 <style lang="less" scoped>
 	button{
-		min-width:150px;
+		min-width: 150px;
 		height: 40px;
     padding:0 20px;
 		font-size: 16px;
