@@ -33,6 +33,7 @@ import string_format from './components/content/tool/string_format'
 
 const routes = [
   { path: '/', component: index },
+  { path: '/index', component: index },
   { path: '/tool/css3', component: css3 },
   { path: '/tool/js_str', component: js_str },
   { path: '/tool/html_reset', component: html_reset },

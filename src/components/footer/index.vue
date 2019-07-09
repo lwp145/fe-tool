@@ -20,7 +20,7 @@ export default {
   width: 100%;
   height: 60px;
   line-height: 60px;
-  background: #373737;
+  background: #313d4c;
   border-bottom: 2px solid #434343;
   color: #848484;
   font-size: 14px;

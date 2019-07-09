@@ -223,7 +223,7 @@ export default {
   height: 30px;
   line-height: 30px;
   font-size: 16px;
-  background-color: #ff6a00;
+  background-color: rgb(64, 158, 255);
   color: #fff;
   text-align: center;
 }

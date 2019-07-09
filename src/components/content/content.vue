@@ -1,5 +1,5 @@
 <template>
-  <section class="content clearfix">
+  <section class="content clearfix" style="height: calc(100vh - 120px);">
     <div class="menu">
       <ul>
         <li v-bind:key="item.icon" v-for="item in routerArr">
@@ -28,113 +28,55 @@ export default {
 
 <!-- 这里特地去掉 scoped私有 -->
 <style lang="less">
-@li_bg: #6dc0ff;
+@li_bg: rgb(64, 158, 255);
 .content {
   width: 100%;
   font-size: 0;
-  height: 100%;
   white-space: nowrap;
   overflow: hidden;
+  display: flex;
   .menu {
     display: inline-block;
-    width: 20%;
-    min-width: 200px;
+    min-width: 220px;
     height: 100%;
     background: #f2f2ea;
-    border-right: 1px solid #d9d9d1;
+    background-color: rgb(48, 65, 86);
     overflow-y: auto;
     li {
       width: 100%;
       min-height: 50px;
       line-height: 50px;
       text-align: left;
-      border-bottom: 2px solid #ecece4;
       position: relative;
       a {
         display: inline-block;
-        color: #666762;
+        color: rgb(191, 203, 217);
         height: 100%;
         width: 100%;
-        border-left: 1px solid #ecece4;
-        font-size: 16px;
+        font-size: 14px;
         vertical-align: top;
         white-space: nowrap;
         overflow: hidden;
+        text-decoration: none;
+        transition: all 0.3s ease;
       }
-      a.router-link-active {
-        background: @li_bg;
-        color: #fff;
-        border-left: 1px solid @li_bg;
+      a.router-link-exact-active {
+        color: @li_bg;
         span {
-          color: #fff;
+          color: @li_bg;
         }
       }
       span {
         vertical-align: middle;
         display: inline-block;
-        padding: 0 20px;
-        font-size: 24px;
-        color: #666762;
+        margin: 0 10px 0 20px;
+        color: rgb(191, 203, 217);
+        transition: all 0.3s ease;
       }
-    }
-    li:after {
-      content: "";
-      width: 5px;
-      height: 50px;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-    li:nth-child(1):after {
-      background: #51a3dd;
-    }
-    li:nth-child(2):after {
-      background: #5ac275;
-    }
-    li:nth-child(3):after {
-      background: #914dde;
-    }
-    li:nth-child(4):after {
-      background: #4a5bdf;
-    }
-    li:nth-child(5):after {
-      background: #d2a063;
-    }
-    li:nth-child(6):after {
-      background: #a15a5e;
-    }
-    li:nth-child(7):after {
-      background: #5d9e96;
-    }
-    li:nth-child(8):after {
-      background: #616161;
-    }
-    li:nth-child(9):after {
-      background: #b1af77;
-    }
-    li:nth-child(10):after {
-      background: #b78686;
-    }
-    li:nth-child(11):after {
-      background: #5d790b;
-    }
-    li:nth-child(12):after {
-      background: #408c99;
-    }
-    li:nth-child(13):after {
-      background: #59a550;
-    }
-    li:nth-child(14):after {
-      background: #1f77ad;
-    }
-    li:nth-child(15):after {
-      background: #f99;
     }
     li:hover {
       a {
-        background: @li_bg;
-        color: #fff;
-        border-left: 1px solid @li_bg;
+        background: rgb(38, 52, 69);
       }
       span {
         color: #fff;
@@ -144,7 +86,7 @@ export default {
   .contBox {
     font-size: 20px;
     display: inline-block;
-    width: 80%;
+    flex: 1;
     min-width: 850px;
     height: 100%;
     overflow-y: auto;

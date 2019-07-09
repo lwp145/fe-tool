@@ -26,23 +26,7 @@ export default {
       console.log(2);
     }
   },
-  // 组件渲染完成执行
   mounted: function() {
-    // 给content计算高度
-    var contHeight =
-      $(window).height() -
-      $(".footer").outerHeight() -
-      $(".header").outerHeight();
-    $(".content").css("height", contHeight - 1);
-
-    $(window).resize(function() {
-      // 给content计算高度
-      var contHeight =
-        $(window).height() -
-        $(".footer").outerHeight() -
-        $(".header").outerHeight();
-      $(".content").css("height", contHeight - 1);
-    });
   }
 };
 </script>
@@ -52,10 +36,8 @@ export default {
   font-family: "Microsoft YaHei", "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #f0f0f0;
+  background: #f0f2f5;
   width: 100%;
-  border-top: 1px solid #444444;
-  /*font-size: 0;*/
 }
 #app h1 {
   font-size: 20px;

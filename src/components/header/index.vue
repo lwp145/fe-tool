@@ -23,7 +23,7 @@ export default {
 .header {
   font-size: 0;
   width: 100%;
-  background: #373737;
+  background: #383d44;
   padding: 0 5%;
   height: 60px;
   line-height: 60px;

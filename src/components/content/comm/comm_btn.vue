@@ -28,7 +28,7 @@ export default {
 		text-align: center;
     cursor:pointer;
 		color: #fff;
-		background: #51a3dd;
+		background: rgb(64, 158, 255);
 		border:none;
 	}
 </style>
