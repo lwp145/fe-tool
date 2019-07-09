@@ -6,27 +6,23 @@
   </div>
 </template>
 <script>
-import vHeader from "./components/header/index";
-import vContent from "./components/content/content.vue";
-import vFooter from "./components/footer/index";
+import vHeader from './components/header/index';
+import vContent from './components/content/content.vue';
+import vFooter from './components/footer/index';
 
-import { mapState, mapMutations, mapGetters, mapActions } from "vuex";
+import { mapState, mapMutations, mapGetters, mapActions } from 'vuex';
 export default {
-  name: "app",
+  components: {
+    'v-header': vHeader,
+    'v-content': vContent,
+    'v-footer': vFooter
+  },
   data() {
     return {};
   },
-  components: {
-    "v-header": vHeader,
-    "v-content": vContent,
-    "v-footer": vFooter
+  mounted: function() {
   },
   methods: {
-    onClickMe: function() {
-      console.log(2);
-    }
-  },
-  mounted: function() {
   }
 };
 </script>

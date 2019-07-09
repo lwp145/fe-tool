@@ -22,18 +22,14 @@
 }
 </style>
 
-
 <script>
 export default {
-  name: "css_triangle",
   data() {
     return {};
   },
+  mounted() {},
   methods: {
-    // 所有浏览器
-  },
-  // 组件渲染完成执行
-  mounted: function() {}
+  }
 };
 </script>
 

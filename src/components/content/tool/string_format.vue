@@ -5,23 +5,22 @@
     <div class="form-group">
       <label for="exampleInputPassword1">即将转换的内容</label>
       <input
+        v-model="textFormat"
         type="text"
         class="form-control"
-        id="format_centent"
-        v-model="textFormat"
         placeholder="请输入.."
       >
     </div>
 
-    <div class="form-inline" v-bind:key="item.title" v-for="(item) in formarArr">
+    <div v-for="(item) in formarArr" :key="item.title" class="form-inline">
       <div class="form-group">
         <div class="input-group">
-          <div class="input-group-addon">{{item.title}}</div>
-          <input type="text" class="form-control" v-bind:value="item.val">
+          <div class="input-group-addon">{{ item.title }}</div>
+          <input type="text" class="form-control" :value="item.val">
           <div
-            class="input-group-addon btn btn-primary"
             v-clipboard:copy="item.val"
             v-clipboard:success="onCopySuccess"
+            class="input-group-addon btn btn-primary"
           >Copy</div>
         </div>
       </div>
@@ -35,47 +34,46 @@ export default {
     return {
       formarArr: [
         {
-          title: "英文大写",
+          title: '英文大写',
           prop: this.upperCase,
-          val: ""
+          val: ''
         },
         {
-          title: "英文小写",
+          title: '英文小写',
           prop: this.lowerCase,
-          val: ""
+          val: ''
         },
         {
-          title: "字符串转unicode编码",
+          title: '字符串转unicode编码',
           prop: this.str2unicode,
-          val: ""
+          val: ''
         },
         {
-          title: "unicode解码",
+          title: 'unicode解码',
           prop: this.unicode2str,
-          val: ""
+          val: ''
         },
         {
-          title: "decodeURIComponent解码",
+          title: 'decodeURIComponent解码',
           prop: this.decodeURIComponent,
-          val: ""
+          val: ''
         },
         {
-          title: "decodeURI解码",
+          title: 'decodeURI解码',
           prop: this.decodeURI,
-          val: ""
+          val: ''
         },
         {
-          title: "时间戳转换时间",
+          title: '时间戳转换时间',
           prop: this.timestamp,
-          val: ""
+          val: ''
         }
       ],
-      textFormat: ""
+      textFormat: ''
     };
   },
   watch: {
     textFormat: function(_str) {
-      const that = this;
       const res = this.formarArr.map(item => {
         const obj = item;
         obj.val = item.prop(_str);
@@ -87,7 +85,7 @@ export default {
   methods: {
     /* 复制成功 */
     onCopySuccess() {
-      console.log("复制成功");
+      console.log('复制成功');
     },
     /* 转换为英文大写 */
     upperCase(_str) {
@@ -101,16 +99,16 @@ export default {
     str2unicode(_str) {
       var res = [];
       for (let i = 0; i < _str.length; i++) {
-        res[i] = ("00" + _str.charCodeAt(i).toString(16)).slice(-4);
+        res[i] = ('00' + _str.charCodeAt(i).toString(16)).slice(-4);
       }
-      return res.length === 0 ? "" : "\\u" + res.join("\\u");
+      return res.length === 0 ? '' : '\\u' + res.join('\\u');
     },
     /* unicode解码 */
     unicode2str: function(_str) {
-      _str = _str.replace(/\\/g, "%");
+      _str = _str.replace(/\\/g, '%');
       _str = unescape(_str);
-      _str = _str.replace(/%/g, "\\");
-      _str = _str.replace(/\\/g, "");
+      _str = _str.replace(/%/g, '\\');
+      _str = _str.replace(/\\/g, '');
       return _str;
     },
     /* decodeURIComponent解码 */
@@ -127,7 +125,7 @@ export default {
       if (_time.length === 10) {
         stamp = stamp * 1000;
       }
-      let res = new Date(Number(stamp)).format("yyyy-MM-dd hh:mm:ss");
+      let res = new Date(Number(stamp)).format('yyyy-MM-dd hh:mm:ss');
       if (_time.length !== 10 && _time.length !== 13 && isNaN(stamp) === true) {
         res = '时间戳格式不正确';
       }

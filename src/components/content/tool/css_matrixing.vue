@@ -7,7 +7,7 @@
     </div>
 
     <div class="column">
-      <a href="javascript:void(0);" v-on:click="css_matrixing" class="column_a1">确定</a>
+      <a href="javascript:void(0);" :click="css_matrixing" class="column_a1">确定</a>
 
       <div class="column_box1">
         <!--倍数-->
@@ -98,56 +98,57 @@ export default {
   data() {
     return {};
   },
+  mounted: function() {},
   methods: {
     // 所有浏览器
     css_matrixing: function() {
-      var agoVal = $("#textarea_01").val(),
-        r_checkbox = $("#column_checkbox").prop("checked"),
-        r_checkbox2 = $("#column_checkbox2").prop("checked"),
-        r_checkbox3 = $("#column_checkbox3").prop("checked"),
-        r_checkbox4 = $("#column_checkbox4").prop("checked"),
-        r_checkbox5 = $("#column_checkbox5").prop("checked"),
+      var agoVal = $('#textarea_01').val(),
+        r_checkbox = $('#column_checkbox').prop('checked'),
+        r_checkbox2 = $('#column_checkbox2').prop('checked'),
+        r_checkbox3 = $('#column_checkbox3').prop('checked'),
+        r_checkbox4 = $('#column_checkbox4').prop('checked'),
+        r_checkbox5 = $('#column_checkbox5').prop('checked'),
         numVal,
-        unitRadioVal = $(".column_num input[name=column_num]:checked").val();
-      if (unitRadioVal == 0) {
+        unitRadioVal = Number($('.column_num input[name=column_num]:checked').val());
+      if (unitRadioVal === 0) {
         numVal = 1.5;
-      } else if (unitRadioVal == 1) {
+      } else if (unitRadioVal === 1) {
         numVal = 2;
-      } else if (unitRadioVal == 2) {
-        numVal = $.trim($("#column_num").val());
+      } else if (unitRadioVal === 2) {
+        numVal = $.trim($('#column_num').val());
       }
       agoVal = agoVal.replace(/:\s*[^:;]*\s*}/g, function(r_word90) {
-        return r_word90.slice(0, -1) + ";}";
+        return r_word90.slice(0, -1) + ';}';
       });
       agoVal = agoVal.replace(/{[^}]*}/g, function(r_word100) {
-        r_word100 = r_word100.replace(/\/\*[\s\S]*\*\//g, "");
+        r_word100 = r_word100.replace(/\/\*[\s\S]*\*\//g, '');
         return r_word100;
       });
       if (r_checkbox3) {
-        agoVal = agoVal.replace(/\s*text-indent\s*:\s*-\s*\d+px\s*;/g, "");
+        agoVal = agoVal.replace(/\s*text-indent\s*:\s*-\s*\d+px\s*;/g, '');
       }
       if (r_checkbox4) {
         agoVal = agoVal
-          .replace(/\s*border\s*:[^;]*;/g, "")
-          .replace(/\s*border-top[^:]*:[^;]*;/g, "")
-          .replace(/\s*border-bottom[^:]*:[^;]*;/g, "")
-          .replace(/\s*border-right[^:]*:[^;]*;/g, "")
-          .replace(/\s*border-left[^:]*:[^;]*;/g, "");
+          .replace(/\s*border\s*:[^;]*;/g, '')
+          .replace(/\s*border-top[^:]*:[^;]*;/g, '')
+          .replace(/\s*border-bottom[^:]*:[^;]*;/g, '')
+          .replace(/\s*border-right[^:]*:[^;]*;/g, '')
+          .replace(/\s*border-left[^:]*:[^;]*;/g, '');
       }
       if (r_checkbox5) {
-        var rb5_val = $("#column_checkbox5_val").val();
-        if ($.trim(rb5_val.replace(/:/g, "")) != "") {
-          console.log("不为空");
+        var rb5_val = $('#column_checkbox5_val').val();
+        if ($.trim(rb5_val.replace(/:/g, '')) != '') {
+          console.log('不为空');
           var rb5_array, rb5_length;
-          rb5_array = rb5_val.split(":");
+          rb5_array = rb5_val.split(':');
           rb5_length = rb5_array.length;
           for (var i = 0; i < rb5_length; i++) {
             var rb5_arrayVal = $.trim(rb5_array[i]);
-            if (rb5_arrayVal != "") {
+            if (rb5_arrayVal != '') {
               var rb5_regexp = new RegExp(
-                "\\s*" + rb5_arrayVal + "\\s*:[^;]*;"
+                '\\s*' + rb5_arrayVal + '\\s*:[^;]*;'
               );
-              agoVal = agoVal.replace(rb5_regexp, "");
+              agoVal = agoVal.replace(rb5_regexp, '');
             }
           }
         }
@@ -157,7 +158,7 @@ export default {
           var b_sign = false;
           r_word0.replace(/:\s*[^;{}]*;/g, function(r_word2) {
             r_word2.replace(/\d+px/gi, function(r_word3) {
-              r_word3 = r_word3.replace(/(^0px)+/gi, "");
+              r_word3 = r_word3.replace(/(^0px)+/gi, '');
               r_word3.replace(/\d+px/gi, function() {
                 b_sign = true;
               });
@@ -166,11 +167,11 @@ export default {
           if (b_sign) {
             return r_word0;
           } else {
-            return "";
+            return '';
           }
         });
       }
-      if (numVal != "" && numVal != 0 && numVal > 1) {
+      if (numVal != '' && numVal != 0 && numVal > 1) {
         agoVal = agoVal.replace(/\d+px/gi, function(r_word1) {
           var a_nun = parseInt(r_word1) * numVal,
             a_divide = parseInt(a_nun / 2),
@@ -178,29 +179,26 @@ export default {
           if (a_surplus != 0) {
             if (a_divide != 0) {
               if (a_surplus > 1) {
-                return (a_divide * 1 + 1) * 2 + "px";
+                return (a_divide * 1 + 1) * 2 + 'px';
               } else {
-                return a_divide * 2 + "px";
+                return a_divide * 2 + 'px';
               }
             } else {
-              return "2px";
+              return '2px';
             }
           } else {
-            return a_nun + "px";
+            return a_nun + 'px';
           }
         });
       }
       if (r_checkbox2) {
-        agoVal = agoVal.replace(/[^/;{}]*{\s*}/g, "");
+        agoVal = agoVal.replace(/[^/;{}]*{\s*}/g, '');
       }
-      $("#textarea_02").val(agoVal);
+      $('#textarea_02').val(agoVal);
     }
-  },
-  // 组件渲染完成执行
-  mounted: function() {}
+  }
 };
 </script>
-
 
 <style lang="less" scoped>
 .textarea textarea {

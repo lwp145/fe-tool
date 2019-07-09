@@ -37,29 +37,31 @@
 </template>
 
 <script>
-import comm_btn from "../comm/comm_btn.vue";
-import "../../../assets/js/qrcode";
+import comm_btn from '../comm/comm_btn.vue';
+import '../../../assets/js/qrcode';
 export default {
-  name: "qr_code",
+  components: {
+    'v-btn': comm_btn
+  },
   data() {
     return {};
   },
-  components: {
-    'v-btn':comm_btn
+  mounted() {
+    this.qr_code();
   },
   methods: {
-    // 生成二维码
+    /* 生成二维码 */
     qr_code: function() {
-      var text_val = $("#text").val(),
-        width_val = $("#width").val(),
-        height_val = $("#height").val(),
-        foreground_val = $("#foreground").val(),
-        background_val = $("#background").val();
-        $("#qrcode").html("");
-        text_val = this.$options.methods.toUtf8(text_val);
+      let text_val = $('#text').val();
+      const width_val = $('#width').val();
+      const height_val = $('#height').val();
+      const foreground_val = $('#foreground').val();
+      const background_val = $('#background').val();
+      $('#qrcode').html('');
+      text_val = this.$options.methods.toUtf8(text_val);
 
-      $("#qrcode").qrcode({
-        render: "canvas", //设置渲染方式
+      $('#qrcode').qrcode({
+        render: 'canvas', // 设置渲染方式
         text: text_val, // 要编码的字符串
         width: width_val, // 定义宽度
         height: height_val, // 定义高度
@@ -68,9 +70,8 @@ export default {
       });
     },
     toUtf8: function(str) {
-      // alert(1);
       var out, i, len, c;
-      out = "";
+      out = '';
       len = str.length;
       for (i = 0; i < len; i++) {
         c = str.charCodeAt(i);
@@ -87,13 +88,6 @@ export default {
       }
       return out;
     }
-  },
-  beforeCreate: function() {
-    
-  },
-  // 加载qrcode jquery 插件
-  mounted: function() {
-    this.qr_code();
   }
 };
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div class="tool_box">
-	<h1>无损图片压缩 支持 jpg,png </h1>
-    <iframe style="width: 100%;min-width: 850px; height: 650px;" scrolling="no" frameborder="no" id="info" src="https://tinypng.com">
+    <h1>无损图片压缩 支持 jpg,png </h1>
+    <iframe style="width: 100%;min-width: 850px; height: 650px;" scrolling="no" frameborder="no" src="https://tinypng.com">
     </iframe>
     <p>正式地址：<a href="https://tinypng.com">https://tinypng.com</a></p>
   </div>
@@ -9,15 +9,16 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
-    }
+    };
   },
-  methods:{
+  mounted() {
+    console.log(123);
   },
-  mounted:function(){
+  methods: {
   }
-}
+};
 </script>
 
 <style lang="less" scoped>

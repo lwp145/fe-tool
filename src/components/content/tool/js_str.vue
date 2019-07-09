@@ -14,36 +14,36 @@
 </template>
 
 <script>
-import comm_btn from "../comm/comm_btn.vue";
+import comm_btn from '../comm/comm_btn.vue';
 export default {
+  components: {
+    'v-btn': comm_btn
+  },
   data() {
     return {
       txt1: '',
       txt2: '',
-      isArraySel: true,
+      isArraySel: true
     };
   },
-  components: {
-    "v-btn": comm_btn
-  },
   methods: {
-    /** 
+    /**
      * 单引号
      */
     single: function() {
-      let {txt1, isArraySel} = this;
+      const { txt1, isArraySel } = this;
       let htmlArr = txt1
-        .replace(/\\/g, "\\\\")
-        .replace(/\\/g, "\\/")
+        .replace(/\\/g, '\\\\')
+        .replace(/\\/g, '\\/')
         .replace(/\'/g, "\\'")
         .replace(/\"/g, '\\"')
-        .split("\n");
-      let len = htmlArr.length;
+        .split('\n');
+      const len = htmlArr.length;
       let outArr = [];
       if (isArraySel) {
-        outArr.push("[");
+        outArr.push('[');
         jQuery.each(htmlArr, function(index, value) {
-          if (value !== "") {
+          if (value !== '') {
             if (index === len - 1) {
               outArr.push('"' + value + '"');
             } else {
@@ -54,7 +54,7 @@ export default {
         outArr.push('].join("");');
       } else {
         jQuery.each(htmlArr, function(index, value) {
-          if (value !== "") {
+          if (value !== '') {
             if (index === len - 1) {
               outArr.push('"' + value + '";');
             } else {
@@ -63,24 +63,24 @@ export default {
           }
         });
       }
-      this.txt2 = outArr.join("");
+      this.txt2 = outArr.join('');
     },
-    /** 
+    /**
      * 双引号
      */
     plural: function() {
-      let {txt1, isArraySel} = this;
-      let htmlArr = txt1
-        .replace(/\\/g, "\\\\")
-        .replace(/\\/g, "\\/")
+      const { txt1, isArraySel } = this;
+      const htmlArr = txt1
+        .replace(/\\/g, '\\\\')
+        .replace(/\\/g, '\\/')
         .replace(/\'/g, "\\'")
-        .split("\n");
-      let len = htmlArr.length;
+        .split('\n');
+      const len = htmlArr.length;
       let outArr = [];
       if (isArraySel) {
-        outArr.push("[");
+        outArr.push('[');
         jQuery.each(htmlArr, function(index, value) {
-          if (value !== "") {
+          if (value !== '') {
             if (index === len - 1) {
               outArr.push("'" + value + "'");
             } else {
@@ -91,7 +91,7 @@ export default {
         outArr.push('].join("");');
       } else {
         jQuery.each(htmlArr, function(index, value) {
-          if (value !== "") {
+          if (value !== '') {
             if (index === len - 1) {
               outArr.push("'" + value + "';");
             } else {
@@ -100,7 +100,7 @@ export default {
           }
         });
       }
-      this.txt2 = outArr.join("");
+      this.txt2 = outArr.join('');
     }
   }
 };

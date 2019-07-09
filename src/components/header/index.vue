@@ -12,7 +12,6 @@
 
 <script>
 export default {
-  name: "header",
   data() {
     return {};
   }
@@ -23,7 +22,7 @@ export default {
 .header {
   font-size: 0;
   width: 100%;
-  background: #383d44;
+  background: #313d4c;
   padding: 0 5%;
   height: 60px;
   line-height: 60px;
@@ -34,7 +33,7 @@ export default {
     float: left;
     a {
       text-decoration: none;
-      color: #9e9e9e;
+      color: #dedede;
       text-shadow: 0 0 4px #000;
     }
   }

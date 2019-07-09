@@ -1,5 +1,10 @@
 export const ROUTER_CONFIG = [
   {
+    path: '/',
+    icon: 'icon-home',
+    text: 'Home'
+  },
+  {
     path: '/tool/string_format',
     icon: 'icon-swap',
     text: '字符多种格式转换'
@@ -7,7 +12,7 @@ export const ROUTER_CONFIG = [
   {
     path: '/tool/md_api',
     icon: 'icon-news',
-    text: '接口转MD'
+    text: 'Api 转 MackDown'
   },
   {
     path: '/tool/js_str',
@@ -45,7 +50,7 @@ export const ROUTER_CONFIG = [
     text: 'Animate.css'
   },
   {
-    path: '/tool/creat_img',
+    path: '/tool/colpick',
     icon: 'icon-brush',
     text: '颜色选取'
   },

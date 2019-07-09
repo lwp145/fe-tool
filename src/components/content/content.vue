@@ -2,10 +2,10 @@
   <section class="content clearfix" style="height: calc(100vh - 120px);">
     <div class="menu">
       <ul>
-        <li v-bind:key="item.icon" v-for="item in routerArr">
+        <li v-for="item in routerArr" :key="item.icon">
           <router-link :to="item.path">
             <span :class="item.icon"></span>
-            {{item.text}}
+            {{ item.text }}
           </router-link>
         </li>
       </ul>
@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { ROUTER_CONFIG } from "../../config/index.js";
+import { ROUTER_CONFIG } from '../../config/index.js';
 export default {
   data() {
     return {

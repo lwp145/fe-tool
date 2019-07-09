@@ -1,7 +1,6 @@
 <template>
   <div class="tool_box">
     <h1>生成不同尺寸缩略图</h1>
-    <!-- 主内容 start -->
     <div id="container">
       <a
         id="selectBtn"
@@ -22,9 +21,9 @@
         <div class="artwork">
           <p class="pic_info_p">
             width：
-            <strong>{{picWidth}}</strong>px height：
-            <strong>{{picHeight}}</strong>px size：
-            <strong>{{picSize}}</strong>kb
+            <strong>{{ picWidth }}</strong>px height：
+            <strong>{{ picHeight }}</strong>px size：
+            <strong>{{ picSize }}</strong>kb
           </p>
           <canvas id="cropper"></canvas>
 
@@ -86,15 +85,15 @@
             <!-- <p>180*180</p> -->
             <p>
               <a
-                v-bind:href="small_base64"
-                v-bind:download="small_pic_name"
+                :href="small_base64"
+                :download="small_pic_name"
                 class="download"
               >Download</a>
             </p>
             <canvas
               id="smallPic"
-              v-bind:width="small_pic_width"
-              v-bind:height="small_pic_height"
+              :width="small_pic_width"
+              :height="small_pic_height"
               class="preview"
             ></canvas>
           </div>
@@ -103,23 +102,22 @@
     </div>
 
     <div id="test_pic"></div>
-    <img v-bind:src="small_base64" style="display:none;" />
+    <img :src="small_base64" style="display:none;" />
   </div>
 </template>
 
 <script>
 export default {
-  name: "creat_img",
   data() {
     return {
-      imgType: "image/png", // 图片类型
+      imgType: 'image/png', // 图片类型
       picWidth: 0, // 原图宽度
       picHeight: 0, // 原图高度
       picSize: 0, // 原图大小
       small_pic_width: 100, // 缩略图宽度
       small_pic_height: 100, // 缩略图高度
-      small_pic_name: "test", // 缩略图随即名称
-      small_base64: "", // 缩略图的下载地址
+      small_pic_name: 'test', // 缩略图随即名称
+      small_base64: '', // 缩略图的下载地址
       aaa: 100
     };
   },
@@ -130,26 +128,26 @@ export default {
     },
     // change触发
     selectImage: function(fileList) {
-      if (fileList == "input_file") {
-        var fileList = document.getElementById("input_file");
+      if (fileList === 'input_file') {
+        var fileList = document.getElementById('input_file');
       }
-      if (fileList["files"].length == 0) {
+      if (fileList['files'].length === 0) {
         return false;
       }
       // vue 元素
       var that = this;
       // 选择的files
-      var ele_files = fileList["files"][0];
-      that.picSize = (ele_files["size"] / 1024).toFixed(2);
+      var ele_files = fileList['files'][0];
+      that.picSize = (ele_files['size'] / 1024).toFixed(2);
 
       // 把file文件的类型 赋值给 data
-      // that.imgType = ele_files["type"];
+      // that.imgType = ele_files['type'];
       // // 文件名用时间戳
       // that.small_pic_name = Date.parse(new Date());
       // 生成base64
       var reader = new FileReader();
       reader.readAsDataURL(ele_files);
-      var base64_str = "";
+      var base64_str = '';
       // 生成base64成功后执行
       reader.onload = function(e) {
         base64_str = this.result;
@@ -170,9 +168,9 @@ export default {
             img_width,
             img_height
           );
-          that.cropper.setCanvas("cropper");
-          that.cropper.addPreview("smallPic");
-          that.cropper.loadImage(fileList["files"][0]);
+          that.cropper.setCanvas('cropper');
+          that.cropper.addPreview('smallPic');
+          that.cropper.loadImage(fileList['files'][0]);
           // canvas 转换为 图片
           function convertCanvasToImage(canvas) {
             var image = new Image();
@@ -182,7 +180,7 @@ export default {
           // 延长0.1秒去截取图片
           setTimeout(function() {
             // 获取缩略图的 canvas
-            var smallPic = document.getElementById("smallPic");
+            var smallPic = document.getElementById('smallPic');
             that.small_base64 = convertCanvasToImage(smallPic).src;
           }, 100);
         };
@@ -193,10 +191,10 @@ export default {
     rotateImage: function(e) {
       console.log(e);
       switch (e.target.id) {
-        case "rotateLeftBtn":
+        case 'rotateLeftBtn':
           this.cropper.rotate(-90);
           break;
-        case "rotateRightBtn":
+        case 'rotateRightBtn':
           this.cropper.rotate(90);
           break;
       }
@@ -221,12 +219,12 @@ export default {
         this.previews = [];
         this.maskGroup = [];
         this.maskAlpha = 0.4;
-        this.maskColor = "#fff";
+        this.maskColor = '#fff';
         this.cropTop = this.cropLeft = 0;
         this.cropViewWidth = d;
         this.cropViewHeight = e;
         this.dragSize = 7;
-        this.dragColor = "#fff";
+        this.dragColor = '#fff';
         this.mouseY = this.mouseX = this.dragTop = this.dragLeft = 0;
         this.isResizing = this.isMoving = this.inDragger = this.inCropper = false;
         this.cropStartHeight = this.cropStartWidth = this.cropStartTop = this.cropStartLeft = this.mouseStartY = this.mouseStartX = 0;
@@ -234,19 +232,19 @@ export default {
       i.ImageCropper = c;
       c.prototype.setCanvas = function(a) {
         this.canvas = document.getElementById(a) || a;
-        this.context = this.canvas.getContext("2d");
+        this.context = this.canvas.getContext('2d');
         this.canvas.width = this.width;
         this.canvas.height = this.height;
         this.canvas.oncontextmenu = this.canvas.onselectstart = function() {
           return false;
         };
-        this.imageCanvas = document.createElement("canvas");
-        this.imageContext = this.imageCanvas.getContext("2d");
+        this.imageCanvas = document.createElement('canvas');
+        this.imageContext = this.imageCanvas.getContext('2d');
         this.imageCanvas.width = this.width;
         this.imageCanvas.height = this.height;
       };
       c.prototype.addPreview = function(a) {
-        this.previews.push((document.getElementById(a) || a).getContext("2d"));
+        this.previews.push((document.getElementById(a) || a).getContext('2d'));
       };
       c.prototype.loadImage = function(a) {
         if (this.isAvaiable() && this.isImage(a)) {
@@ -307,19 +305,19 @@ export default {
       };
       // 这是移动的函数
       c.prototype._mouseHandler = function(a) {
-        if (a.type == "mousemove") {
+        if (a.type == 'mousemove') {
           var b = this.canvas.getClientRects()[0];
           this.mouseX = a.pageX - b.left - $(window).scrollLeft();
           this.mouseY = a.pageY - b.top - $(window).scrollTop();
           this._checkMouseBounds();
           this.canvas.style.cursor =
             this.inCropper || this.isMoving
-              ? "move"
+              ? 'move'
               : this.inDragger || this.isResizing
-              ? "se-resize"
-              : "";
+              ? 'se-resize'
+              : '';
           this.isMoving ? this._move() : this.isResizing && this._resize();
-        } else if (a.type == "mousedown") {
+        } else if (a.type == 'mousedown') {
           this.mouseStartX = this.mouseX;
           this.mouseStartY = this.mouseY;
           this.cropStartLeft = this.cropLeft;

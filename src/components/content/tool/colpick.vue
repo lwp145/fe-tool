@@ -13,14 +13,13 @@
 
 <script>
 export default {
-  name: "colpick",
   data() {
     return {};
   },
+  mounted: {},
   methods: {
     colpick: function() {}
-  },
-  mounted: function() {}
+  }
 };
 </script>
 

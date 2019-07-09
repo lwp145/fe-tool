@@ -11,41 +11,39 @@
 </template>
 
 <script>
-import comm_btn from "../comm/comm_btn.vue";
+import comm_btn from '../comm/comm_btn.vue';
 export default {
+  components: {
+    'v-btn': comm_btn
+  },
   data() {
     return {
       txt1: '',
       txt2: '',
-      isOpacity: false,
+      isOpacity: false
     };
   },
   watch: {
     txt1(newVal) {
-      this.isOpacity = newVal.substr(0, 7) === 'opacity' ? true : false;
+      this.isOpacity = newVal.substr(0, 7) === 'opacity';
     }
-  },
-  components: {
-    "v-btn": comm_btn
   },
   methods: {
     all_browser: function() {
-      let { txt1, isOpacity } = this;
-      txt1 = txt1.substr(-1) !== ";" ?  `${txt1};` : txt1;
+      let { txt1 } = this;
+      const { isOpacity } = this;
+      txt1 = txt1.substr(-1) !== ';' ? `${txt1};` : txt1;
       this.txt2 = `-webkit-${txt1}\r\n-moz-${txt1}\r\n-ms-${txt1}\r\n-o-${txt1}\r\n${txt1}`;
       if (isOpacity) {
-        let opacity_num = txt1.split(':')[1].replace(';', '');
+        const opacity_num = txt1.split(':')[1].replace(';', '');
         this.txt2 = `${txt1}\r\nfilter:alpha(opacity=${opacity_num * 100});`;
       }
     },
     webkit_browser: function() {
       let { txt1 } = this;
-      txt1 = txt1.substr(-1) !== ";" ?  `${txt1};` : txt1;
+      txt1 = txt1.substr(-1) !== ';' ? `${txt1};` : txt1;
       this.txt2 = `-webkit-${txt1}\r\n${txt1}`;
     }
-  },
-  mounted: function() {
-
   }
 };
 </script>

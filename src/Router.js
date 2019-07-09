@@ -1,35 +1,35 @@
 /* 首页 */
-import index from './components/content/tool/index'
+import index from './components/content/tool/index';
 /* html 转为js字符串 */
-import js_str from './components/content/tool/js_str'
+import js_str from './components/content/tool/js_str';
 /* css3兼容 */
-import css3 from './components/content/tool/css3'
+import css3 from './components/content/tool/css3';
 /* html格式化 */
-import html_reset from './components/content/tool/html_reset'
+import html_reset from './components/content/tool/html_reset';
 /* CSS换算 */
-import css_matrixing from './components/content/tool/css_matrixing'
+import css_matrixing from './components/content/tool/css_matrixing';
 /* 二维码生成 */
-import qr_code from './components/content/tool/qr_code'
+import qr_code from './components/content/tool/qr_code';
 /* 生成缩略图 */
-import creat_img from './components/content/tool/creat_img'
+import creat_img from './components/content/tool/creat_img';
 /* animate.css */
-import animate from './components/content/tool/animate'
+import animate from './components/content/tool/animate';
 /* 颜色选取 */
-import colpick from './components/content/tool/colpick'
+import colpick from './components/content/tool/colpick';
 /* 图片压缩 */
-import tinypng from './components/content/tool/tinypng'
+import tinypng from './components/content/tool/tinypng';
 /* css压缩格式化 */
-import css_format from './components/content/tool/css_format'
+import css_format from './components/content/tool/css_format';
 /* json压缩格式化 */
-import json_format from './components/content/tool/json_format'
+import json_format from './components/content/tool/json_format';
 /* js压缩格式化 */
-import js_format from './components/content/tool/js_format'
+import js_format from './components/content/tool/js_format';
 /* css生成三角形 */
-import css_triangle from './components/content/tool/css_triangle'
+import css_triangle from './components/content/tool/css_triangle';
 /* 生成md的api */
-import md_api from './components/content/tool/md_api'
+import md_api from './components/content/tool/md_api';
 /* 字符串格式化为多种类型 */
-import string_format from './components/content/tool/string_format'
+import string_format from './components/content/tool/string_format';
 
 const routes = [
   { path: '/', component: index },

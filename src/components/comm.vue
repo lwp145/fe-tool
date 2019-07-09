@@ -1,22 +1,20 @@
 <template>
   <div class="content">
-	<p>comm</p>
+    <p>comm</p>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'content',
-  data () {
+  data() {
     return {
-      
-    }
+    };
   }
-}
+};
 </script>
 
 <style lang="less" scoped>
- .content{
-	
- }
+.content{
+  color:#fff;
+}
 </style>

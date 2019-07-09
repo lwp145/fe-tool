@@ -1,6 +1,6 @@
 <template>
   <footer class="footer">
-    Copyright © 2017 - {{this.year}}
+    Copyright © 2017 - {{ year }}
     <a href="http://www.chenzejiang.com" title="陈泽江的博客">webJ</a> All Rights Reserved
   </footer>
 </template>
