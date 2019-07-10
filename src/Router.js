@@ -31,25 +31,137 @@ import md_api from './components/content/tool/md_api';
 /* 字符串格式化为多种类型 */
 import string_format from './components/content/tool/string_format';
 
+// { path: '/', component: () => import('./components/content/tool/index.vue') },
+
 const routes = [
-  // { path: '/', component: () => import('./components/content/tool/index.vue') },
-  { path: '/', component: index },
-  { path: '/index', component: index },
-  { path: '/tool/css3', component: css3 },
-  { path: '/tool/js_str', component: js_str },
-  { path: '/tool/html_reset', component: html_reset },
-  { path: '/tool/css_matrixing', component: css_matrixing },
-  { path: '/tool/qr_code', component: qr_code },
-  { path: '/tool/creat_img', component: creat_img },
-  { path: '/tool/animate', component: animate },
-  { path: '/tool/colpick', component: colpick },
-  { path: '/tool/tinypng', component: tinypng },
-  { path: '/tool/css_format', component: css_format },
-  { path: '/tool/json_format', component: json_format },
-  { path: '/tool/js_format', component: js_format },
-  { path: '/tool/md_api', component: md_api },
-  { path: '/tool/string_format', component: string_format },
-  { path: '/tool/css_triangle', component: css_triangle }
+  {
+    path: '/',
+    component: index,
+    meta: {
+      title: 'Home',
+      icon: 'icon-home'
+    }
+  },
+  {
+    path: '/tool/string_format',
+    component: string_format,
+    meta: {
+      icon: 'icon-swap',
+      title: '字符多种格式转换'
+    }
+  },
+  {
+    path: '/tool/md_api',
+    component: md_api,
+    meta: {
+      icon: 'icon-news',
+      title: 'Api 转 MackDown'
+    }
+  },
+  {
+    path: '/tool/js_str',
+    component: js_str,
+    meta: {
+      icon: 'icon-tools',
+      title: 'HTML转为JS字符串'
+    }
+  },
+  {
+    path: '/tool/css3',
+    component: css3,
+    meta: {
+      icon: 'icon-layers',
+      title: 'CSS3 兼容'
+    }
+  },
+  {
+    path: '/tool/html_reset',
+    component: html_reset,
+    meta: {
+      icon: 'icon-code',
+      title: 'HTML格式化'
+    }
+  },
+  {
+    path: '/tool/css_matrixing',
+    component: css_matrixing,
+    meta: {
+      icon: 'icon-documents',
+      title: 'CSS适配换算'
+    }
+  },
+  {
+    path: '/tool/qr_code',
+    component: qr_code,
+    meta: {
+      icon: 'icon-eye',
+      title: '二维码生成'
+    }
+  },
+  {
+    path: '/tool/creat_img',
+    component: creat_img,
+    meta: {
+      icon: 'icon-images',
+      title: '生成图片缩略图'
+    }
+  },
+  {
+    path: '/tool/animate',
+    component: animate,
+    meta: {
+      icon: 'icon-air',
+      title: 'Animate.css'
+    }
+  },
+  {
+    path: '/tool/colpick',
+    component: colpick,
+    meta: {
+      icon: 'icon-brush',
+      title: '颜色选取'
+    }
+  },
+  {
+    path: '/tool/tinypng',
+    component: tinypng,
+    meta: {
+      icon: 'icon-folder-images',
+      title: '图片压缩'
+    }
+  },
+  {
+    path: '/tool/css_format',
+    component: css_format,
+    meta: {
+      icon: 'icon-flow-tree',
+      title: 'CSS压缩格式化'
+    }
+  },
+  {
+    path: '/tool/json_format',
+    component: json_format,
+    meta: {
+      icon: 'icon-flow-branch',
+      title: 'JSON压缩格式化'
+    }
+  },
+  {
+    path: '/tool/js_format',
+    component: js_format,
+    meta: {
+      icon: 'icon-flow-parallel',
+      title: 'JS压缩格式化'
+    }
+  },
+  {
+    path: '/tool/css_triangle',
+    component: css_triangle,
+    meta: {
+      icon: 'icon-triangle-up',
+      title: 'CSS生成三角形'
+    }
+  }
 ];
 
 export default routes;

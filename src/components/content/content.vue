@@ -3,9 +3,9 @@
     <div class="menu">
       <ul>
         <li v-for="item in routerArr" :key="item.icon">
-          <router-link :to="item.path">
-            <span :class="item.icon"></span>
-            {{ item.text }}
+          <router-link :to="{path: item.path}">
+            <span :class="item.meta.icon"></span>
+            {{ item.meta.title }}
           </router-link>
         </li>
       </ul>
@@ -15,11 +15,11 @@
 </template>
 
 <script>
-import { ROUTER_CONFIG } from '../../config/index.js';
+import routes from '../../Router';
 export default {
   data() {
     return {
-      routerArr: ROUTER_CONFIG
+      routerArr: routes
     };
   },
   mounted: function() {}
