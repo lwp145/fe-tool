@@ -1,6 +1,6 @@
 <template>
   <div class="tool_box">
-    <h1>首页</h1>
+    <h1>{{ this.$route.meta.title }}</h1>
     <section :key="index" v-for="(items, index) in index_data">
       <h2>
         <span>{{ index }}</span>

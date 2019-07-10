@@ -1,6 +1,6 @@
 <template>
   <div class="tool_box">
-    <h1>二维码生成</h1>
+    <h1>{{ this.$route.meta.title }}</h1>
     <div class="box">
       <p>
         <span>生成二维码的地址:</span>

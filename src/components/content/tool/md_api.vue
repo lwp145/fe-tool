@@ -1,6 +1,6 @@
 <template>
   <div class="tool_box">
-    <h1>生成MackDown - API</h1>
+    <h1>{{ this.$route.meta.title }}</h1>
 
     <p class="red">
       PS: 如果接口开启跨域，请使用以下方法解决

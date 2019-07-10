@@ -1,7 +1,6 @@
 <template>
   <div class="tool_box">
-    <h1>字符串转换多种格式</h1>
-
+    <h1>{{ this.$route.meta.title }}</h1>
     <div class="form-group">
       <label for="exampleInputPassword1">即将转换的内容</label>
       <input

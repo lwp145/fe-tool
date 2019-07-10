@@ -1,6 +1,6 @@
 <template>
   <div class="tool_box">
-    <h1>CSS3兼容</h1>
+    <h1>{{ this.$route.meta.title }}</h1>
     <textarea v-model="txt1"></textarea>
     <div class="btn_box">
       <v-btn btnText="兼容5大浏览器" @click.native="all_browser"></v-btn>

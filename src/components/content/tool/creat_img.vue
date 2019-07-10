@@ -1,6 +1,6 @@
 <template>
   <div class="tool_box">
-    <h1>生成不同尺寸缩略图</h1>
+    <h1>{{ this.$route.meta.title }}</h1>
     <div id="container">
       <a
         id="selectBtn"

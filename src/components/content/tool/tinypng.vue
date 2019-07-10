@@ -1,6 +1,6 @@
 <template>
   <div class="tool_box">
-    <h1>无损图片压缩 支持 jpg,png </h1>
+    <h1>{{ this.$route.meta.title }}</h1>
     <iframe style="width: 100%;min-width: 850px; height: 650px;" scrolling="no" frameborder="no" src="https://tinypng.com">
     </iframe>
     <p>正式地址：<a href="https://tinypng.com">https://tinypng.com</a></p>

@@ -1,6 +1,6 @@
 <template>
   <div class="tool_box">
-    <h1>html压缩()</h1>
+    <h1>{{ this.$route.meta.title }}</h1>
     <textarea v-model="txt1" placeholder="html代码格式化"></textarea>
     <div class="btn_box">
       <v-btn btnText="html代码格式化" @click.native="html_reset"></v-btn>

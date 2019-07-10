@@ -1,6 +1,6 @@
 <template>
   <div class="tool_box">
-    <h1>HTML代码转换为JavaScript字符串</h1>
+    <h1>{{ this.$route.meta.title }}</h1>
     <textarea v-model="txt1" placeholder="HTML代码转换为JavaScript字符串()"></textarea>
     <div class="btn_box">
       <v-btn btnText="转为单引号" @click.native="plural"></v-btn>

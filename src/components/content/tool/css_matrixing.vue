@@ -1,6 +1,6 @@
 <template>
   <div class="tool_box">
-    <h1>css 代码换算</h1>
+    <h1>{{ this.$route.meta.title }}</h1>
 
     <div class="textarea">
       <textarea title="请输入文字" id="textarea_01"></textarea>
@@ -94,7 +94,6 @@
 
 <script>
 export default {
-  name: "css_matrixing",
   data() {
     return {};
   },

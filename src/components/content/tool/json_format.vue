@@ -1,6 +1,6 @@
 <template>
   <div class="tool_box">
-    <h1>JSON压缩格式化</h1>
+    <h1>{{ this.$route.meta.title }}</h1>
     <iframe
       style="width: 100%; height: 550px;"
       scrolling="no"
